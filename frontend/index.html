@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <body>
-<h1>Microservice App</h1>
+<h1>Microservices App</h1>
 <button onclick="getData()">Get Data</button>
 <p id="output"></p>
 
 <script>
 async function getData() {
-  const res = await fetch("http://backend:5000/data");
+  const res = await fetch("/api/data");
   const data = await res.json();
   document.getElementById("output").innerText = data.time;
 }

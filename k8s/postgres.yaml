@@ -18,8 +18,19 @@ spec:
         image: postgres:13
         env:
         - name: POSTGRES_DB
-          value: appdb
+          valueFrom:
+            configMapKeyRef:
+              name: app-config
+              key: DB_NAME
         - name: POSTGRES_USER
-          value: admin
+          valueFrom:
+            secretKeyRef:
+              name: app-secret
+              key: DB_USER
         - name: POSTGRES_PASSWORD
-          value: admin
+          valueFrom:
+            secretKeyRef:
+              name: app-secret
+              key: DB_PASS
+        ports:
+        - containerPort: 5432
