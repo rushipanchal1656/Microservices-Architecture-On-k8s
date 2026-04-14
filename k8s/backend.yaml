@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: your-dockerhub/backend:latest
+        image: rushipanchal/backend:v1
         ports:
         - containerPort: 5000
 
